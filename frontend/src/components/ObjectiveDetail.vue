@@ -2,7 +2,24 @@
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
     <!-- Main Content -->
     <main class="p-6">
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">{{ objective?.title }}</h1>
+      <div class="mb-6">
+        <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">
+          {{ objective?.id }}
+        </div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{{ objective?.title }}</h1>
+          <div class="relative group">
+            <InformationCircleIcon 
+              class="h-6 w-6 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 cursor-help transition-colors duration-200" 
+            />
+            <!-- Tooltip -->
+            <div class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-80 p-2 bg-gray-900 dark:bg-gray-700 text-white text-sm rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              {{ objective?.title }}
+              <div class="absolute left-1/2 -translate-x-1/2 top-full w-2 h-2 bg-gray-900 dark:bg-gray-700 transform rotate-45"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Key Results Section -->
       <section class="mb-8">
@@ -22,12 +39,17 @@
                     class="w-5 h-5 text-gray-500 dark:text-gray-400"
                   />
                 </div>
-                <router-link 
-                  :to="{ name: 'key-result', params: { id: kr.id }}"
-                  class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
-                >
-                  {{ kr.title }}
-                </router-link>
+                <div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                    {{ kr.id }}
+                  </div>
+                  <router-link 
+                    :to="{ name: 'key-result', params: { id: kr.id }}"
+                    class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                  >
+                    {{ kr.title }}
+                  </router-link>
+                </div>
               </div>
               <span class="text-sm text-gray-500 dark:text-gray-400">{{ kr.dueDate }}</span>
             </div>
@@ -62,6 +84,9 @@
                   Descrição
                 </th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Responsável
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                   Status
                 </th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
@@ -80,6 +105,11 @@
                 <td class="px-6 py-4">
                   <div class="text-sm text-gray-500 dark:text-gray-400">
                     {{ initiative.description }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900 dark:text-white">
+                    {{ initiative.responsible }}
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
@@ -113,7 +143,8 @@ import {
   ServerIcon,
   CurrencyDollarIcon,
   DocumentChartBarIcon,
-  ClipboardDocumentCheckIcon
+  ClipboardDocumentCheckIcon,
+  InformationCircleIcon
 } from '@heroicons/vue/24/outline'
 
 const route = useRoute()
