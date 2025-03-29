@@ -9,6 +9,12 @@ or from the tv in their office room
 and understand the initiatives the team is working at 
 to achieve results
 
+# Hosting
+The application will be hosted on Firebase, providing:
+- Secure and scalable hosting environment
+- Fast content delivery through Firebase CDN
+- Easy deployment process
+- SSL certificate management
 
 # Feature requirements
 ## Implemented Features
@@ -51,11 +57,14 @@ to achieve results
 
 ## Pending
 - Integration with shadcn components
+- Firebase setup and configuration:
+  - Firebase Hosting setup
+  - Deployment pipeline configuration
+  - Domain and SSL certificate setup
 
 # Code Structure
 - `/frontend/src/components/` - Vue components
 - `/frontend/src/data/` - JSON data files
 - `/frontend/src/router/` - Route configurations
 - `/docs/` - Project documentation
-
-
+- `/firebase/` - Firebase configuration files
