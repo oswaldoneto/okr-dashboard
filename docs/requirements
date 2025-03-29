@@ -6,24 +6,56 @@ to monitor the team's OKRs
 to allow users to access result metrics
 from their smartphones 
 or from the tv in their office room
-and undertand the initiatives the team is working at 
+and understand the initiatives the team is working at 
 to achieve results
 
 
 # Feature requirements
-- homepage must contain an overviews of the objectives and key results
-- each objective must have its own page incluindo a list of initiatives
-- objetive page must the acessed by a side menu
-- each initiaives must have a brief desciption, a due date and a status represente by colors red, yellow and green
-- each key results must have its own page
-- each key resulst page must have the key result history from the lastest 6 month collect
-- the history should be presented in a graph
-- each key result page includes a list of initiatives from objectives
-- all key results needs a data struecture to persist the key result metric from the latest 6 months including month and year references
-- key result collection must have a json file in the data folder
+## Implemented Features
+- Dark/Light mode toggle with system preference detection
+- Responsive sidebar navigation with objective list
+- Homepage containing an overview of objectives and key results
+- Each objective has its own page including:
+  - Objective ID and full title
+  - Information icon with tooltip showing complete objective description
+  - List of key results with:
+    - KR ID and title
+    - Progress indicator with color coding (red < 30%, yellow 30-70%, green > 70%, gray for disabled)
+    - Due date
+  - List of initiatives with:
+    - Title
+    - Description
+    - Responsible person
+    - Status with color coding (red, yellow, green)
+    - Due date
+- Each key result has its own page including:
+  - KR title and details
+  - Historical data graph showing the last 6 months of progress
+  - List of related initiatives
+- Data persistence through JSON files in the data folder for:
+  - OKRs structure
+  - Initiatives
+  - Key Result history with month/year references
 
+## Pending Features
+- Additional mobile optimizations
+- TV display mode optimizations
 
 # Technical requirements
-- must have an front-end application based on vue.js, tailwind and shadcn
+## Implemented
+- Vue.js 3 with Composition API
+- Tailwind CSS for styling
+- Vue Router for navigation
+- Chart.js for data visualization
+- Heroicons for icons
+
+## Pending
+- Integration with shadcn components
+
+# Code Structure
+- `/frontend/src/components/` - Vue components
+- `/frontend/src/data/` - JSON data files
+- `/frontend/src/router/` - Route configurations
+- `/docs/` - Project documentation
 
 

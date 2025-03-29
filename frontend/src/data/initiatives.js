@@ -8,4 +8,13 @@ export const mockInitiatives = [
     dueDate: "30/04/2025",
     responsible: "Paulinho"
   },
+  {
+    id: 2,
+    objectiveId: "MW-O-897",
+    title: "Automatizar medição de SLA de incidentes",
+    description: "Desenvolver solução para medição automática dos SLAs de primeira resposta e resolução de incidentes através da integração com o board de Incidentes do Jira",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Vanessa"
+  }
 ] 
