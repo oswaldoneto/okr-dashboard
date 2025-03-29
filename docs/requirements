@@ -15,6 +15,13 @@ to achieve results
 - each objective must have its own page incluindo a list of initiatives
 - objetive page must the acessed by a side menu
 - each initiaives must have a brief desciption, a due date and a status represente by colors red, yellow and green
+- each key results must have its own page
+- each key resulst page must have the key result history from the lastest 6 month collect
+- the history should be presented in a graph
+- each key result page includes a list of initiatives from objectives
+- all key results needs a data struecture to persist the key result metric from the latest 6 months including month and year references
+- key result collection must have a json file in the data folder
+
 
 # Technical requirements
 - must have an front-end application based on vue.js, tailwind and shadcn

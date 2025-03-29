@@ -5,8 +5,8 @@
       <h2 class="text-xl font-bold text-gray-900 dark:text-white">DIO OKR</h2>
       
       <!-- Dark Mode Toggle -->
-      <button 
-        @click="toggleDarkMode" 
+      <button
+        @click="toggleDarkMode"
         class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
         :title="isDarkMode ? 'Mudar para modo claro' : 'Mudar para modo escuro'"
       >
