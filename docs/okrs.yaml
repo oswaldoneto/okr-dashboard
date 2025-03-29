@@ -1,0 +1,44 @@
+objectives:
+  - id: "MW-O-897"
+    title: "Garantir alta disponibilidade e performance das aplicações, minimizando downtime e assegurando tempos de resposta eficientes para uma boa experiência do usuário."
+    key_results:
+      - id: "MW-KR-898"
+        title: "Garantir 99,45% de uptime nos serviços críticos para o usuário da plataforma até 30/06/2025."
+      - id: "MW-KR-899"
+        title: "Garantir que 95% dos incidentes sejam resolvidos dentro do SLA acordado (80 horas) até 30/06/2025."
+      - id: "MW-KR-900"
+        title: "Reduzir o tempo médio de resposta da API de 95% das requisições para ≤ 500ms até 30/06/2025."
+      - id: "MW-KR-965"
+        title: "Garantir que 95% dos incidentes recebam a primeira resposta dentro do SLA definido (8 horas) em até 30/06/2025."
+
+  - id: "MW-O-884"
+    title: "Garantir uma infraestrutura otimizada, escalável e custo-efetiva para suportar o crescimento da DIO sem comprometer performance e estabilidade."
+    key_results:
+      - id: "MW-KR-885"
+        title: "Manter o custo médio de infraestrutura por usuário abaixo de R$ 0,78 até 30/06/2025."
+      - id: "MW-KR-886"
+        title: "Manter os custos de infraestrutura para operação DIO abaixo de R$ 10.000 até 30/06/2025 sem comprometer performance."
+      - id: "MW-KR-887"
+        title: "Manter o custo mensal de ambientes de sandbox abaixo de R$ 10.000 até 30/06/2025."
+      - id: "MW-KR-888"
+        title: "Manter o custo de serviços e infraestrutura de IA abaixo de R$15.000 até 31/05/2025, sem impactar qualidade e tempo de resposta."
+
+  - id: "MW-O-956"
+    title: "Garantir a acessibilidade e confiabilidade dos dados por meio de dashboards e relatórios escaláveis, assegurando disponibilidade e entrega eficiente para tomada de decisão."
+    key_results:
+      - id: "MW-KR-957"
+        title: "Garantir a implementação de 100% das camadas planejadas do Data Lake até 30/06/2024."
+      - id: "MW-KR-958"
+        title: "Assegurar que 97% das extrações e relatórios sejam entregues dentro do prazo acordado até 30/06/2025."
+
+  - id: "MW-O-892"
+    title: "Garantir entregas pontuais, alinhadas ao escopo e com alta qualidade, otimizando processos de desenvolvimento e testes para maior previsibilidade e eficiência operacional."
+    key_results:
+      - id: "MW-KR-893"
+        title: "Garantir que 93% das entregas sejam concluídas dentro do prazo planejado até 30/06/2025."
+      - id: "MW-KR-894"
+        title: "Garantir que 95% das entregas sejam finalizadas sem aumento não planejado de escopo até 30/06/2025."
+      - id: "MW-KR-895"
+        title: "Manter a taxa de retrabalho e bugs pós-implantação em 10% das entregas em até 15 dias após a implantação em produção."
+      - id: "MW-KR-896"
+        title: "Realizar ao menos 1 teste de performance por mês nos componentes mais críticos da aplicação até 30/06/2025." 

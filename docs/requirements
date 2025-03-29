@@ -1,0 +1,22 @@
+# Project overview
+Use this document 
+to build a web application
+to DIO Product Development Team
+to monitor the team's OKRs 
+to allow users to access result metrics
+from their smartphones 
+or from the tv in their office room
+and undertand the initiatives the team is working at 
+to achieve results
+
+
+# Feature requirements
+- homepage must contain an overviews of the objectives and key results
+- each objective must have its own page incluindo a list of initiatives
+- objetive page must the acessed by a side menu
+- each initiaives must have a brief desciption, a due date and a status represente by colors red, yellow and green
+
+# Technical requirements
+- must have an front-end application based on vue.js, tailwind and shadcn
+
+
