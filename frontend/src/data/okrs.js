@@ -49,7 +49,9 @@ export const mockOkrs = [
         title: "Manter o custo médio de infraestrutura por usuário abaixo de R$ 0,78",
         dueDate: "30/06/2025",
         progress: 90,
-        disabled: false
+        disabled: false,
+        currentValue: 0.75,
+        previousValue: 0.82
       },
       {
         id: "MW-KR-886",
@@ -57,7 +59,9 @@ export const mockOkrs = [
         title: "Manter os custos de infraestrutura para operação DIO abaixo de R$ 10.000 sem comprometer performance",
         dueDate: "30/06/2025",
         progress: 85,
-        disabled: false
+        disabled: false,
+        currentValue: 9500,
+        previousValue: 11000
       },
       {
         id: "MW-KR-887",
@@ -65,15 +69,19 @@ export const mockOkrs = [
         title: "Manter o custo mensal de ambientes de sandbox abaixo de R$ 10.000",
         dueDate: "30/06/2025",
         progress: 70,
-        disabled: false
+        disabled: false,
+        currentValue: 9800,
+        previousValue: 10500
       },
       {
         id: "MW-KR-888",
         objectiveId: "MW-O-884",
         title: "Manter o custo de serviços e infraestrutura de IA abaixo de R$15.000, sem impactar qualidade e tempo de resposta",
-        dueDate: "31/05/2025",
+        dueDate: "31/06/2025",
         progress: 65,
-        disabled: false
+        disabled: false,
+        currentValue: 15500,
+        previousValue: 16000
       }
     ]
   },

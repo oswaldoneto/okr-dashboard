@@ -21,7 +21,7 @@ objectives:
       - id: "MW-KR-887"
         title: "Manter o custo mensal de ambientes de sandbox abaixo de R$ 10.000 até 30/06/2025."
       - id: "MW-KR-888"
-        title: "Manter o custo de serviços e infraestrutura de IA abaixo de R$15.000 até 31/05/2025, sem impactar qualidade e tempo de resposta."
+        title: "Manter o custo de serviços e infraestrutura de IA abaixo de R$15.000 até 31/06/2025, sem impactar qualidade e tempo de resposta."
 
   - id: "MW-O-956"
     title: "Garantir a acessibilidade e confiabilidade dos dados por meio de dashboards e relatórios escaláveis, assegurando disponibilidade e entrega eficiente para tomada de decisão."

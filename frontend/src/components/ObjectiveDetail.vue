@@ -53,17 +53,41 @@
               </div>
               <span class="text-sm text-gray-500 dark:text-gray-400">{{ kr.dueDate }}</span>
             </div>
-            <div class="space-y-4">
-              <div>
-                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                  <div :class="kr.disabled ? 'bg-gray-400 dark:bg-gray-600' : 'bg-primary-600 dark:bg-primary-500'" 
-                       class="h-2.5 rounded-full transition-all duration-500" 
-                       :style="{ width: `${kr.progress}%` }"></div>
+
+            <!-- Valor Monetário para MW-O-884 -->
+            <div v-if="isMonetaryObjective" class="mt-4">
+              <div class="flex justify-between items-baseline">
+                <div class="text-3xl font-bold text-gray-900 dark:text-white">
+                  {{ getKrValue(kr) }}
                 </div>
-                <div class="flex justify-between mt-1 text-sm text-gray-600 dark:text-gray-400">
-                  <span>{{ getProgressLabel(kr) }}</span>
-                  <span>{{ kr.progress }}%</span>
+                <div class="flex items-center gap-1">
+                  <span class="text-sm" :class="getKrTrend(kr) >= 0 ? 'text-red-500' : 'text-green-500'">
+                    <span class="flex items-center">
+                      <ArrowUpIcon v-if="getKrTrend(kr) >= 0" class="h-4 w-4" />
+                      <ArrowDownIcon v-else class="h-4 w-4" />
+                      <span class="font-medium">{{ Math.abs(getKrTrend(kr)) }}%</span>
+                      <span class="ml-1">em relação ao mês anterior</span>
+                    </span>
+                  </span>
                 </div>
+              </div>
+            </div>
+
+            <!-- Barra de Progresso para outros objetivos -->
+            <div v-else class="mt-4">
+              <div class="flex items-center gap-4">
+                <div class="flex-1">
+                  <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div 
+                      class="h-full transition-all duration-500 ease-out rounded-full"
+                      :class="getProgressColor(kr.progress, kr.disabled)"
+                      :style="{ width: `${kr.progress}%` }"
+                    ></div>
+                  </div>
+                </div>
+                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {{ kr.progress }}%
+                </span>
               </div>
             </div>
           </div>
@@ -144,7 +168,9 @@ import {
   CurrencyDollarIcon,
   DocumentChartBarIcon,
   ClipboardDocumentCheckIcon,
-  InformationCircleIcon
+  InformationCircleIcon,
+  ArrowUpIcon,
+  ArrowDownIcon
 } from '@heroicons/vue/24/outline'
 
 const route = useRoute()
@@ -239,6 +265,28 @@ const getKrIcon = (krId) => {
     default:
       return ChartBarIcon // Ícone padrão de gráfico
   }
+}
+
+const formatCurrency = (value) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(value)
+}
+
+const isMonetaryObjective = computed(() => {
+  return objective.value?.id === 'MW-O-884'
+})
+
+const getKrValue = (kr) => {
+  if (!kr.currentValue) return '0'
+  return formatCurrency(kr.currentValue)
+}
+
+const getKrTrend = (kr) => {
+  if (!kr.previousValue || !kr.currentValue) return 0
+  const difference = ((kr.currentValue - kr.previousValue) / kr.previousValue) * 100
+  return difference.toFixed(1)
 }
 
 onMounted(() => {
