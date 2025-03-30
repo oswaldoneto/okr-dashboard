@@ -60,16 +60,6 @@
                 <div class="text-3xl font-bold text-gray-900 dark:text-white">
                   {{ getKrValue(kr) }}
                 </div>
-                <div class="flex items-center gap-1">
-                  <span class="text-sm" :class="getKrTrend(kr) >= 0 ? 'text-red-500' : 'text-green-500'">
-                    <span class="flex items-center">
-                      <ArrowUpIcon v-if="getKrTrend(kr) >= 0" class="h-4 w-4" />
-                      <ArrowDownIcon v-else class="h-4 w-4" />
-                      <span class="font-medium">{{ Math.abs(getKrTrend(kr)) }}%</span>
-                      <span class="ml-1">em relação ao mês anterior</span>
-                    </span>
-                  </span>
-                </div>
               </div>
             </div>
 

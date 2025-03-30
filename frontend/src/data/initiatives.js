@@ -52,5 +52,32 @@ export const mockInitiatives = [
     status: "Em andamento",
     dueDate: "30/04/2025",
     responsible: "Vanessa"
+  },
+  {
+    id: 7,
+    objectiveId: "MW-O-892",
+    title: "Criação de sistema de tags para User Stories no Jira",
+    description: "Desenvolver um sistema de tags para identificar todas as User Stories do '2025-Q2', incluindo tags para 'DELIVERY-DELAY', 'SCOPE-CHANGE' e 'BUG-AFTER-DELIVERY'. Esse sistema será fundamental para mensurar os KRs e extrair relatórios que permitam calcular os KRs mês a mês.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Vanessa"
+  },
+  {
+    id: 8,
+    objectiveId: "MW-O-897",
+    title: "Revisão do processo de gestão, análise e resolução de incidentes",
+    description: "Revisar junto com a equipe o processo de gestão, análise e resolução de incidentes. Validar formulário de entrada, matriz de priorização, capacidade de atendimento, comunicação com outras equipes e métricas.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Oswaldo"
+  },
+  {
+    id: 9,
+    objectiveId: "MW-O-884",
+    title: "Obter acesso a dados de cobrança e análise de custos",
+    description: "Obter acesso a todos os dados de cobrança, fazer um estudo dos custos, documentar, analisar e atualizar a documentação para o monitoramento dos custos e manutenção dos indicadores de key result.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Oswaldo"
   }
 ] 

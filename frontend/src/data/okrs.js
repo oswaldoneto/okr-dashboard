@@ -1,7 +1,7 @@
 export const mockOkrs = [
   {
     id: "MW-O-897",
-    title: "Garantir a estabilidade e performance da plataforma DIO",
+    title: "Garantir alta disponibilidade e performance das aplicações, minimizando downtime e assegurando tempos de resposta eficientes para uma boa experiência do usuário.",
     dueDate: "30/06/2025",
     key_results: [
       {
@@ -9,7 +9,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-897",
         title: "Garantir 99,45% de uptime nos serviços críticos para o usuário da plataforma",
         dueDate: "30/06/2025",
-        progress: 75,
+        progress: 99.99,
         disabled: false
       },
       {
@@ -17,7 +17,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-897",
         title: "Reduzir o tempo médio de resposta da API de 95% das requisições para ≤ 500ms",
         dueDate: "30/06/2025",
-        progress: 45,
+        progress: 98,
         disabled: false
       },
       {
@@ -25,7 +25,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-897",
         title: "Garantir que 95% dos incidentes recebam a primeira resposta dentro do SLA definido (8 horas)",
         dueDate: "30/06/2025",
-        progress: 80,
+        progress: 20,
         disabled: false
       },
       {
@@ -48,10 +48,9 @@ export const mockOkrs = [
         objectiveId: "MW-O-884",
         title: "Manter o custo médio de infraestrutura por usuário abaixo de R$ 0,78",
         dueDate: "30/06/2025",
-        progress: 90,
+        progress: 0,
         disabled: false,
-        currentValue: 0.75,
-        previousValue: 0.82
+        currentValue: 1.1
       },
       {
         id: "MW-KR-886",
@@ -60,28 +59,25 @@ export const mockOkrs = [
         dueDate: "30/06/2025",
         progress: 85,
         disabled: false,
-        currentValue: 9500,
-        previousValue: 11000
+        currentValue: 9500
       },
       {
         id: "MW-KR-887",
         objectiveId: "MW-O-884",
         title: "Manter o custo mensal de ambientes de sandbox abaixo de R$ 10.000",
         dueDate: "30/06/2025",
-        progress: 70,
+        progress: 60,
         disabled: false,
-        currentValue: 9800,
-        previousValue: 10500
+        currentValue: 9800
       },
       {
         id: "MW-KR-888",
         objectiveId: "MW-O-884",
         title: "Manter o custo de serviços e infraestrutura de IA abaixo de R$15.000, sem impactar qualidade e tempo de resposta",
         dueDate: "31/06/2025",
-        progress: 65,
+        progress: 100,
         disabled: false,
-        currentValue: 15500,
-        previousValue: 16000
+        currentValue: 1234
       }
     ]
   },
