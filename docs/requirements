@@ -20,7 +20,14 @@ The application will be hosted on Firebase, providing:
 ## Implemented Features
 - Dark/Light mode toggle with system preference detection
 - Responsive sidebar navigation with objective list
-- Homepage containing an overview of objectives and key results
+- Homepage containing an overview of objectives and key results with:
+  - Objective ID and truncated title for better visual harmony
+  - Counter showing number of KRs for each objective
+  - Counter showing number of initiatives for each objective
+  - Key Results list showing:
+    - KR ID and title
+    - Health indicator using color coding (red < 30%, yellow 30-70%, green > 70%)
+  - Direct links to specific objective and KR pages
 - Each objective has its own page including:
   - Objective ID and full title
   - Information icon with tooltip showing complete objective description
@@ -35,13 +42,18 @@ The application will be hosted on Firebase, providing:
     - Status with color coding (red, yellow, green)
     - Due date
 - Each key result has its own page including:
-  - KR title and details
+  - KR ID and title
+  - Detailed measurement information:
+    - How the KR is measured/calculated
+    - Data source information
+    - Update frequency
   - Historical data graph showing the last 6 months of progress
   - List of related initiatives
 - Data persistence through JSON files in the data folder for:
   - OKRs structure
   - Initiatives
   - Key Result history with month/year references
+  - Key Result measurement details and explanations
 
 ## Pending Features
 - Additional mobile optimizations
