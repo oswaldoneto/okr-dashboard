@@ -27,58 +27,81 @@
               :data="chartData"
               :options="chartOptions"
             />
+            <div v-else class="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">
+              Não há dados históricos disponíveis para este KR
+            </div>
           </div>
         </div>
 
-        <!-- Iniciativas Relacionadas -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+        <!-- Explicação do KR -->
+        <div v-if="keyResultExplanation" class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden mb-8">
           <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Iniciativas Relacionadas</h2>
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Detalhes do Key Result</h2>
           </div>
-          <div class="overflow-x-auto">
-            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-              <thead class="bg-gray-50 dark:bg-gray-700">
-                <tr>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                    Título
-                  </th>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                    Descrição
-                  </th>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                    Data de Vencimento
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                <tr v-for="initiative in relatedInitiatives" :key="initiative.id" 
-                    class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm font-medium text-gray-900 dark:text-white">
-                      {{ initiative.title }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="text-sm text-gray-500 dark:text-gray-400">
-                      {{ initiative.description }}
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <span :class="getStatusColor(initiative.status)" 
-                          class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full">
-                      {{ initiative.status }}
-                    </span>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                    {{ initiative.dueDate }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          
+          <div class="p-6 space-y-6">
+            <!-- Medição -->
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2 flex items-center">
+                <DocumentChartBarIcon class="h-5 w-5 mr-2 text-blue-500" />
+                Como é medido
+              </h3>
+              <div class="space-y-4">
+                <!-- Descrição -->
+                <div v-if="keyResultExplanation.measurement.descricao" class="mt-2">
+                  <p class="text-gray-700 dark:text-gray-300">
+                    {{ keyResultExplanation.measurement.descricao }}
+                  </p>
+                </div>
+
+                <!-- Como é mensurado (para KRs mais complexos) -->
+                <div v-if="keyResultExplanation.measurement.como_e_mensurado_calculado" class="mt-4">
+                  <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Método de cálculo:</h4>
+                  <ul class="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-400">
+                    <li v-for="(item, index) in keyResultExplanation.measurement.como_e_mensurado_calculado" :key="index">
+                      {{ item }}
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Fórmula -->
+                <div v-if="keyResultExplanation.measurement.formula" class="mt-4">
+                  <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Fórmula:</h4>
+                  <div class="bg-gray-100 dark:bg-gray-800 rounded p-3 font-mono text-sm text-gray-800 dark:text-gray-300">
+                    {{ keyResultExplanation.measurement.formula }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fonte da Informação -->
+            <div class="flex items-start gap-6">
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 flex-1">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2 flex items-center">
+                  <ServerIcon class="h-5 w-5 mr-2 text-green-500" />
+                  Fonte da Informação
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                  {{ keyResultExplanation.fonte_da_informacao }}
+                </p>
+              </div>
+
+              <!-- Frequência de Atualização -->
+              <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 flex-1">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2 flex items-center">
+                  <ClockIcon class="h-5 w-5 mr-2 text-purple-500" />
+                  Frequência de Atualização
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                  {{ keyResultExplanation.frequencia_de_atualizacao }}
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+        
+        <div v-else class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-8 text-center text-gray-500 dark:text-gray-400">
+          Não há informações detalhadas disponíveis para este Key Result
         </div>
       </div>
     </main>
@@ -89,8 +112,8 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { mockOkrs } from '../data/okrs'
-import { mockInitiatives } from '../data/initiatives'
 import { mockKeyResultHistory } from '../data/key-result-history'
+import { mockKeyResultsExplaned } from '../data/all_key_results_explaned'
 import { Line as LineChart } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -102,6 +125,11 @@ import {
   Tooltip,
   Legend
 } from 'chart.js'
+import {
+  ClockIcon,
+  DocumentChartBarIcon,
+  ServerIcon
+} from '@heroicons/vue/24/outline'
 
 ChartJS.register(
   CategoryScale,
@@ -115,8 +143,8 @@ ChartJS.register(
 
 const route = useRoute()
 const objectives = ref([])
-const initiatives = ref([])
 const keyResultHistory = ref({})
+const keyResultsExplaned = ref([])
 
 const keyResult = computed(() => {
   for (const objective of objectives.value) {
@@ -129,6 +157,13 @@ const keyResult = computed(() => {
     }
   }
   return null
+})
+
+const keyResultExplanation = computed(() => {
+  if (!keyResult.value) return null
+  return keyResultsExplaned.value.find(
+    kre => kre.keyResultId === keyResult.value.id && kre.objectiveId === keyResult.value.objectiveId
+  )
 })
 
 const chartData = computed(() => {
@@ -190,11 +225,6 @@ const chartOptions = {
   }
 }
 
-const relatedInitiatives = computed(() => {
-  if (!keyResult.value?.objectiveId) return []
-  return initiatives.value.filter(init => init.objectiveId === keyResult.value.objectiveId)
-})
-
 const getProgressColor = (progress, disabled) => {
   if (disabled) {
     return 'bg-gray-400 dark:bg-gray-600'
@@ -209,22 +239,9 @@ const getProgressColor = (progress, disabled) => {
   }
 }
 
-const getStatusColor = (status) => {
-  switch (status.toLowerCase()) {
-    case 'concluído':
-      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-    case 'em andamento':
-      return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-    case 'em risco':
-      return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-    default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
-  }
-}
-
 onMounted(() => {
   objectives.value = mockOkrs
-  initiatives.value = mockInitiatives
   keyResultHistory.value = mockKeyResultHistory
+  keyResultsExplaned.value = mockKeyResultsExplaned
 })
 </script> 
