@@ -1,110 +1,98 @@
 <template>
   <div class="auth-container">
-    <div v-if="!isAuthenticated" class="login-container">
-      <h2>Bem-vindo ao OKR Dashboard</h2>
-      <button @click="login" class="login-button">
-        Entrar com Microsoft
-      </button>
+    <div v-if="isAuthenticated">
+      <span>Bem-vindo, {{ displayName }}</span>
+      <button @click="logout" class="auth-button logout">Sair</button>
     </div>
-    <div v-else class="user-info">
-      <span>Bem-vindo, {{ userDisplayName }}</span>
-      <button @click="logout" class="logout-button">
-        Sair
-      </button>
+    <div v-else>
+      <button @click="login" class="auth-button login">Entrar com Microsoft</button>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import AuthService from '../services/AuthService';
+import { ref, onMounted } from 'vue'
+import AuthService from '../services/AuthService'
 
 export default {
   name: 'Auth',
   setup() {
-    const isAuthenticated = ref(false);
-    const userDisplayName = ref('');
+    const isAuthenticated = ref(false)
+    const displayName = ref('')
 
     const checkAuth = async () => {
-      isAuthenticated.value = AuthService.isAuthenticated();
-      if (isAuthenticated.value) {
-        try {
-          const userInfo = await AuthService.getUserInfo();
-          userDisplayName.value = userInfo.displayName;
-        } catch (error) {
-          console.error('Error fetching user info:', error);
+      try {
+        isAuthenticated.value = await AuthService.isAuthenticated()
+        if (isAuthenticated.value) {
+          const userInfo = await AuthService.getUserInfo()
+          displayName.value = userInfo.displayName
         }
+      } catch (error) {
+        console.error('Erro ao verificar autenticação:', error)
+        isAuthenticated.value = false
       }
-    };
+    }
 
     const login = async () => {
       try {
-        await AuthService.login();
+        await AuthService.login()
       } catch (error) {
-        console.error('Login failed:', error);
+        console.error('Erro ao fazer login:', error)
       }
-    };
+    }
 
     const logout = async () => {
       try {
-        await AuthService.logout();
-        isAuthenticated.value = false;
-        userDisplayName.value = '';
+        await AuthService.logout()
+        isAuthenticated.value = false
+        displayName.value = ''
       } catch (error) {
-        console.error('Logout failed:', error);
+        console.error('Erro ao fazer logout:', error)
       }
-    };
+    }
 
     onMounted(async () => {
-      await AuthService.initialize();
-      await checkAuth();
-    });
+      await checkAuth()
+    })
 
     return {
       isAuthenticated,
-      userDisplayName,
+      displayName,
       login,
       logout
-    };
+    }
   }
-};
+}
 </script>
 
 <style scoped>
 .auth-container {
   padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.login-container {
-  text-align: center;
-  padding: 2rem;
-}
-
-.login-button, .logout-button {
-  background-color: #0078d4;
-  color: white;
-  border: none;
+.auth-button {
   padding: 0.5rem 1rem;
   border-radius: 4px;
+  border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 1rem;
 }
 
-.login-button:hover, .logout-button:hover {
-  background-color: #106ebe;
+.login {
+  background-color: #0078d4;
+  color: white;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.logout {
+  background-color: #e0e0e0;
+  color: #333;
 }
 
-.logout-button {
-  background-color: #d83b01;
-}
-
-.logout-button:hover {
-  background-color: #a42e01;
+.auth-button:hover {
+  opacity: 0.9;
 }
 </style> 
