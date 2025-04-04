@@ -1,12 +1,13 @@
 # Dependencies
 node_modules/
-.pnp/
+.pnp
 .pnp.js
 
 # Testing
 coverage/
 
 # Production
+frontend/dist/
 dist/
 build/
 
@@ -16,6 +17,7 @@ build/
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 # Logs
 npm-debug.log*
@@ -29,4 +31,8 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw? 
+*.sw?
+
+# Firebase
+.firebase/
+firebase-debug.log 
