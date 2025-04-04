@@ -34,7 +34,7 @@ class AuthService {
   async login() {
     try {
       await this.ensureInitialized();
-      return await this.msalInstance.loginPopup({
+      return await this.msalInstance.loginRedirect({
         ...loginRequest,
         prompt: 'select_account'
       });
@@ -47,8 +47,8 @@ class AuthService {
   async logout() {
     try {
       await this.ensureInitialized();
-      await this.msalInstance.logoutPopup({
-        postLogoutRedirectUri: window.location.origin,
+      await this.msalInstance.logoutRedirect({
+        postLogoutRedirectUri: window.location.origin
       });
     } catch (error) {
       console.error('Error during logout:', error);
@@ -81,10 +81,7 @@ class AuthService {
       return await graphResponse.json();
     } catch (error) {
       if (error instanceof InteractionRequiredAuthError) {
-        const response = await this.msalInstance.acquireTokenPopup(loginRequest);
-        if (response) {
-          return this.getUserInfo();
-        }
+        await this.msalInstance.acquireTokenRedirect(loginRequest);
       }
       throw error;
     }

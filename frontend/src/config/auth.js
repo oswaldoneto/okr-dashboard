@@ -3,11 +3,14 @@ export const msalConfig = {
     clientId: '995158a7-09a1-4d00-99b7-fc1eb2152d96',
     authority: 'https://login.microsoftonline.com/0b96ca9f-6c9e-411d-8d12-fc299ece8307',
     redirectUri: window.location.origin,
-    navigateToLoginRequestUrl: true
+    navigateToLoginRequestUrl: true,
+    postLogoutRedirectUri: window.location.origin,
+    validateAuthority: true
   },
   cache: {
-    cacheLocation: 'localStorage',
-    storeAuthStateInCookie: false
+    cacheLocation: 'sessionStorage',
+    storeAuthStateInCookie: true,
+    secureCookies: true
   },
   system: {
     allowNativeBroker: false,
@@ -40,7 +43,7 @@ export const msalConfig = {
 };
 
 export const loginRequest = {
-  scopes: ['User.Read']
+  scopes: ['User.Read', 'openid', 'profile', 'email']
 };
 
 export const graphConfig = {
