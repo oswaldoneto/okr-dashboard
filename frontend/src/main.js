@@ -6,19 +6,18 @@ import App from './App.vue'
 import router from './router'
 import AuthService from './services/AuthService'
 
-const app = createApp(App)
-
-// Inicializa o AuthService antes de montar o aplicativo
-AuthService.initialize()
-  .then(() => {
-    app.config.globalProperties.$auth = AuthService
-    app.use(router)
-    app.mount('#app')
-  })
-  .catch(error => {
+const startApp = async () => {
+  const app = createApp(App)
+  
+  try {
+    await AuthService.initialize()
+  } catch (error) {
     console.error('Erro ao inicializar AuthService:', error)
-    // Ainda monta o app mesmo se houver erro, para permitir tentativas de login
-    app.config.globalProperties.$auth = AuthService
-    app.use(router)
-    app.mount('#app')
-  })
+  }
+  
+  app.config.globalProperties.$auth = AuthService
+  app.use(router)
+  app.mount('#app')
+}
+
+startApp()
