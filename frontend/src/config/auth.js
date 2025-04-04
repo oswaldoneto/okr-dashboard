@@ -3,17 +3,20 @@ export const msalConfig = {
     clientId: '995158a7-09a1-4d00-99b7-fc1eb2152d96',
     authority: 'https://login.microsoftonline.com/0b96ca9f-6c9e-411d-8d12-fc299ece8307',
     redirectUri: window.location.origin,
-    navigateToLoginRequestUrl: true,
+    navigateToLoginRequestUrl: false,
     postLogoutRedirectUri: window.location.origin,
     validateAuthority: true
   },
   cache: {
-    cacheLocation: 'sessionStorage',
+    cacheLocation: 'localStorage',
     storeAuthStateInCookie: true,
-    secureCookies: true
+    secureCookies: false
   },
   system: {
     allowNativeBroker: false,
+    windowHashTimeout: 60000,
+    iframeHashTimeout: 6000,
+    loadFrameTimeout: 0,
     loggerOptions: {
       loggerCallback: (level, message, containsPii) => {
         if (containsPii) {
@@ -43,7 +46,8 @@ export const msalConfig = {
 };
 
 export const loginRequest = {
-  scopes: ['User.Read', 'openid', 'profile', 'email']
+  scopes: ['User.Read', 'openid', 'profile', 'email'],
+  prompt: 'select_account'
 };
 
 export const graphConfig = {
