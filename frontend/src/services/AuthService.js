@@ -1,43 +1,25 @@
-import { PublicClientApplication, InteractionRequiredAuthError } from '@azure/msal-browser';
+import { PublicClientApplication } from '@azure/msal-browser';
 import { msalConfig, loginRequest, graphConfig } from '../config/auth';
 
 class AuthService {
   constructor() {
-    this.msalInstance = null;
-    this.initialize();
+    this.msalInstance = new PublicClientApplication(msalConfig);
   }
 
   async initialize() {
-    if (!this.msalInstance) {
-      this.msalInstance = new PublicClientApplication(msalConfig);
-      await this.msalInstance.initialize();
-      
-      // Handle the redirect flow
-      try {
-        const response = await this.msalInstance.handleRedirectPromise();
-        if (response) {
-          return response;
-        }
-      } catch (error) {
-        console.error('Error during initialization:', error);
+    try {
+      const response = await this.msalInstance.handleRedirectPromise();
+      if (response) {
+        return response;
       }
-    }
-    return null;
-  }
-
-  async ensureInitialized() {
-    if (!this.msalInstance) {
-      await this.initialize();
+    } catch (error) {
+      console.error('Error during initialization:', error);
     }
   }
 
   async login() {
     try {
-      await this.ensureInitialized();
-      return await this.msalInstance.loginRedirect({
-        ...loginRequest,
-        prompt: 'select_account'
-      });
+      return await this.msalInstance.loginRedirect(loginRequest);
     } catch (error) {
       console.error('Error during login:', error);
       throw error;
@@ -46,10 +28,7 @@ class AuthService {
 
   async logout() {
     try {
-      await this.ensureInitialized();
-      await this.msalInstance.logoutRedirect({
-        postLogoutRedirectUri: window.location.origin
-      });
+      await this.msalInstance.logoutRedirect();
     } catch (error) {
       console.error('Error during logout:', error);
       throw error;
@@ -58,7 +37,6 @@ class AuthService {
 
   async getUserInfo() {
     try {
-      await this.ensureInitialized();
       const account = this.msalInstance.getAllAccounts()[0];
       if (!account) {
         throw new Error('No active account');
@@ -80,20 +58,16 @@ class AuthService {
       const graphResponse = await fetch(graphConfig.graphMeEndpoint, options);
       return await graphResponse.json();
     } catch (error) {
-      if (error instanceof InteractionRequiredAuthError) {
-        await this.msalInstance.acquireTokenRedirect(loginRequest);
-      }
+      console.error('Error getting user info:', error);
       throw error;
     }
   }
 
-  async isAuthenticated() {
-    await this.ensureInitialized();
+  isAuthenticated() {
     return this.msalInstance.getAllAccounts().length > 0;
   }
 
-  async getAccount() {
-    await this.ensureInitialized();
+  getAccount() {
     return this.msalInstance.getAllAccounts()[0];
   }
 }

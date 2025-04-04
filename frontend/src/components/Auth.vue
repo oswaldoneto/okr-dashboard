@@ -26,7 +26,7 @@ export default {
     const userDisplayName = ref('');
 
     const checkAuth = async () => {
-      isAuthenticated.value = await AuthService.isAuthenticated();
+      isAuthenticated.value = AuthService.isAuthenticated();
       if (isAuthenticated.value) {
         try {
           const userInfo = await AuthService.getUserInfo();
@@ -39,9 +39,7 @@ export default {
 
     const login = async () => {
       try {
-        await AuthService.initialize();
         await AuthService.login();
-        await checkAuth();
       } catch (error) {
         console.error('Login failed:', error);
       }
