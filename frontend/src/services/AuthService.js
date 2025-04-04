@@ -3,20 +3,41 @@ import { msalConfig, loginRequest, graphConfig } from '../config/auth';
 
 class AuthService {
   constructor() {
-    this.msalInstance = new PublicClientApplication(msalConfig);
+    this.msalInstance = null;
+    this.initialize();
   }
 
   async initialize() {
-    await this.msalInstance.initialize();
-    await this.msalInstance.handleRedirectPromise();
+    if (!this.msalInstance) {
+      this.msalInstance = new PublicClientApplication(msalConfig);
+      await this.msalInstance.initialize();
+      
+      // Handle the redirect flow
+      try {
+        const response = await this.msalInstance.handleRedirectPromise();
+        if (response) {
+          return response;
+        }
+      } catch (error) {
+        console.error('Error during initialization:', error);
+      }
+    }
+    return null;
+  }
+
+  async ensureInitialized() {
+    if (!this.msalInstance) {
+      await this.initialize();
+    }
   }
 
   async login() {
     try {
-      const loginResponse = await this.msalInstance.loginPopup(loginRequest);
-      if (loginResponse) {
-        return loginResponse;
-      }
+      await this.ensureInitialized();
+      return await this.msalInstance.loginPopup({
+        ...loginRequest,
+        prompt: 'select_account'
+      });
     } catch (error) {
       console.error('Error during login:', error);
       throw error;
@@ -25,7 +46,10 @@ class AuthService {
 
   async logout() {
     try {
-      await this.msalInstance.logoutPopup();
+      await this.ensureInitialized();
+      await this.msalInstance.logoutPopup({
+        postLogoutRedirectUri: window.location.origin,
+      });
     } catch (error) {
       console.error('Error during logout:', error);
       throw error;
@@ -34,6 +58,7 @@ class AuthService {
 
   async getUserInfo() {
     try {
+      await this.ensureInitialized();
       const account = this.msalInstance.getAllAccounts()[0];
       if (!account) {
         throw new Error('No active account');
@@ -56,15 +81,23 @@ class AuthService {
       return await graphResponse.json();
     } catch (error) {
       if (error instanceof InteractionRequiredAuthError) {
-        await this.login();
-        return this.getUserInfo();
+        const response = await this.msalInstance.acquireTokenPopup(loginRequest);
+        if (response) {
+          return this.getUserInfo();
+        }
       }
       throw error;
     }
   }
 
-  isAuthenticated() {
+  async isAuthenticated() {
+    await this.ensureInitialized();
     return this.msalInstance.getAllAccounts().length > 0;
+  }
+
+  async getAccount() {
+    await this.ensureInitialized();
+    return this.msalInstance.getAllAccounts()[0];
   }
 }
 

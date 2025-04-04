@@ -10,7 +10,7 @@ const isAuthenticated = ref(false)
 
 onMounted(async () => {
   await AuthService.initialize()
-  isAuthenticated.value = AuthService.isAuthenticated()
+  isAuthenticated.value = await AuthService.isAuthenticated()
   if (isAuthenticated.value) {
     objectives.value = mockOkrs
   }

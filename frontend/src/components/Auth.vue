@@ -26,7 +26,7 @@ export default {
     const userDisplayName = ref('');
 
     const checkAuth = async () => {
-      isAuthenticated.value = AuthService.isAuthenticated();
+      isAuthenticated.value = await AuthService.isAuthenticated();
       if (isAuthenticated.value) {
         try {
           const userInfo = await AuthService.getUserInfo();
@@ -39,6 +39,7 @@ export default {
 
     const login = async () => {
       try {
+        await AuthService.initialize();
         await AuthService.login();
         await checkAuth();
       } catch (error) {
