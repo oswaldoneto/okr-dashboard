@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import Sidebar from './components/Sidebar.vue'
-import Auth from './components/Auth.vue'
 import AuthService from './services/AuthService'
 import { mockOkrs } from './data/okrs'
 
@@ -35,7 +34,6 @@ watch(isAuthenticated, async (newValue) => {
 
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
-    <Auth />
     <div v-if="isAuthenticated" class="flex">
       <!-- Sidebar -->
       <Sidebar :objectives="objectives" class="w-64 min-h-screen bg-white dark:bg-gray-800 shadow-lg" />
@@ -44,6 +42,14 @@ watch(isAuthenticated, async (newValue) => {
       <div class="flex-1 ml-64">
         <router-view :objectives="objectives"></router-view>
       </div>
+    </div>
+    <div v-else class="flex items-center justify-center h-screen">
+      <button 
+        @click="() => AuthService.login()"
+        class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200"
+      >
+        Entrar com Microsoft
+      </button>
     </div>
   </div>
 </template>

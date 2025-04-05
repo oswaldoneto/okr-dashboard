@@ -45,6 +45,28 @@
       </button>
     </div>
 
+    <!-- Informações do Usuário -->
+    <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+      <div class="flex items-center space-x-3">
+        <div class="flex-shrink-0">
+          <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white font-semibold">
+            {{ userInitials }}
+          </div>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-medium text-gray-900 dark:text-white truncate">
+            {{ firstName }}
+          </p>
+          <button 
+            @click="logout" 
+            class="text-xs text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
+          >
+            Sair
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Menu de Navegação -->
     <nav class="p-4">
       <ul class="space-y-2">
@@ -79,7 +101,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import AuthService from '../services/AuthService'
 
 const props = defineProps({
   objectives: {
@@ -89,6 +112,19 @@ const props = defineProps({
 })
 
 const isDarkMode = ref(false)
+const displayName = ref('')
+
+const firstName = computed(() => {
+  if (!displayName.value) return ''
+  return displayName.value.split(' ')[0]
+})
+
+const userInitials = computed(() => {
+  if (!displayName.value) return ''
+  const names = displayName.value.split(' ')
+  if (names.length === 1) return names[0][0].toUpperCase()
+  return (names[0][0] + names[names.length - 1][0]).toUpperCase()
+})
 
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value
@@ -101,11 +137,30 @@ const getShortTitle = (title) => {
   return words.slice(0, 3).join(' ') + '...'
 }
 
-onMounted(() => {
+const logout = async () => {
+  try {
+    await AuthService.logout()
+  } catch (error) {
+    console.error('Erro ao fazer logout:', error)
+  }
+}
+
+const loadUserInfo = async () => {
+  try {
+    const userInfo = await AuthService.getUserInfo()
+    displayName.value = userInfo.displayName
+  } catch (error) {
+    console.error('Erro ao carregar informações do usuário:', error)
+  }
+}
+
+onMounted(async () => {
   // Verifica se o usuário tem preferência por dark mode no sistema
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     isDarkMode.value = true
     document.documentElement.classList.add('dark')
   }
+  
+  await loadUserInfo()
 })
 </script> 
