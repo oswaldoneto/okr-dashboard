@@ -52,9 +52,6 @@ watch(isAuthenticated, async (newValue) => {
 
       <!-- Aviso de Conteúdo Restrito -->
       <div class="bg-white dark:bg-gray-800 rounded-lg p-6 mb-8 text-center shadow-lg w-full">
-        <div class="text-gray-600 dark:text-gray-300 mb-2">
-          ⚠️ Conteúdo Restrito
-        </div>
         <p class="text-sm text-gray-500 dark:text-gray-400">
           Este é um ambiente exclusivo para colaboradores da DIO.
           Por favor, faça login com sua conta corporativa para acessar.
