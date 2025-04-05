@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import Sidebar from './components/Sidebar.vue'
 import Auth from './components/Auth.vue'
 import AuthService from './services/AuthService'
@@ -8,11 +8,27 @@ import { mockOkrs } from './data/okrs'
 const objectives = ref([])
 const isAuthenticated = ref(false)
 
+const loadData = async () => {
+  try {
+    isAuthenticated.value = await AuthService.isAuthenticated()
+    if (isAuthenticated.value) {
+      objectives.value = mockOkrs
+    }
+  } catch (error) {
+    console.error('Erro ao carregar dados:', error)
+  }
+}
+
 onMounted(async () => {
-  await AuthService.initialize()
-  isAuthenticated.value = await AuthService.isAuthenticated()
-  if (isAuthenticated.value) {
+  await loadData()
+})
+
+// Observa mudanças no estado de autenticação
+watch(isAuthenticated, async (newValue) => {
+  if (newValue) {
     objectives.value = mockOkrs
+  } else {
+    objectives.value = []
   }
 })
 </script>
@@ -26,7 +42,7 @@ onMounted(async () => {
       
       <!-- Main Content -->
       <div class="flex-1 ml-64">
-        <router-view></router-view>
+        <router-view :objectives="objectives"></router-view>
       </div>
     </div>
   </div>

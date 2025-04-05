@@ -8,24 +8,34 @@
         <div v-for="objective in objectives" :key="objective.id" 
              class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
           <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl font-semibold dark:text-white">
-              {{ objective.title }}
-            </h2>
+            <router-link 
+              :to="{ name: 'objective', params: { id: objective.id }}"
+              class="hover:text-primary-600 dark:hover:text-primary-400"
+            >
+              <h2 class="text-xl font-semibold dark:text-white">
+                {{ objective.title }}
+              </h2>
+            </router-link>
             <div class="flex space-x-4">
               <span class="text-gray-600 dark:text-gray-400">
-                KRs: {{ objective.keyResults.length }}
+                KRs: {{ objective.key_results.length }}
               </span>
               <span class="text-gray-600 dark:text-gray-400">
-                Iniciativas: {{ objective.initiatives.length }}
+                Iniciativas: {{ getInitiativesCount(objective.id) }}
               </span>
             </div>
           </div>
           
           <!-- Lista de KRs -->
           <div class="space-y-4">
-            <div v-for="kr in objective.keyResults" :key="kr.id"
+            <div v-for="kr in objective.key_results" :key="kr.id"
                  class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
-              <span class="dark:text-white">{{ kr.title }}</span>
+              <router-link 
+                :to="{ name: 'key-result', params: { id: kr.id }}"
+                class="hover:text-primary-600 dark:hover:text-primary-400"
+              >
+                <span class="dark:text-white">{{ kr.title }}</span>
+              </router-link>
               <div class="flex items-center space-x-2">
                 <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
                   <div :class="getProgressColorClass(kr.progress)"
@@ -46,9 +56,14 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { mockOkrs } from '../data/okrs'
+import { mockInitiatives } from '../data/initiatives'
 
-const objectives = ref([])
+const props = defineProps({
+  objectives: {
+    type: Array,
+    required: true
+  }
+})
 
 const getProgressColorClass = (progress) => {
   if (progress < 30) return 'bg-red-500'
@@ -56,9 +71,9 @@ const getProgressColorClass = (progress) => {
   return 'bg-green-500'
 }
 
-onMounted(() => {
-  objectives.value = mockOkrs
-})
+const getInitiativesCount = (objectiveId) => {
+  return mockInitiatives.filter(initiative => initiative.objectiveId === objectiveId).length
+}
 </script>
 
 <style scoped>
