@@ -106,6 +106,9 @@
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                   Data de Vencimento
                 </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  Data de Conclusão
+                </th>
               </tr>
             </thead>
             <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -134,6 +137,9 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                   {{ initiative.dueDate }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                  {{ initiative.completedAt || '-' }}
                 </td>
               </tr>
             </tbody>
@@ -172,7 +178,20 @@ const objective = computed(() => {
 })
 
 const objectiveInitiatives = computed(() => {
-  return initiatives.value.filter(init => init.objectiveId === route.params.id)
+  const filteredInitiatives = initiatives.value.filter(init => init.objectiveId === route.params.id)
+  
+  // Ordena as iniciativas: em andamento primeiro, concluídas por último
+  return filteredInitiatives.sort((a, b) => {
+    // Se ambas estão em andamento ou ambas estão concluídas, mantém a ordem original
+    if ((a.status === 'Em andamento' && b.status === 'Em andamento') ||
+        (a.status === 'Concluído' && b.status === 'Concluído')) {
+      return 0
+    }
+    // Coloca as em andamento primeiro
+    if (a.status === 'Em andamento') return -1
+    if (b.status === 'Em andamento') return 1
+    return 0
+  })
 })
 
 const getStatusColor = (status) => {

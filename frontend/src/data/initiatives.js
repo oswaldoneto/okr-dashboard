@@ -6,7 +6,8 @@ export const mockInitiatives = [
     description: "Desenvolver e implementar sistema automatizado para medição e monitoramento da disponibilidade dos serviços críticos da aplicação, permitindo acompanhamento em tempo real do uptime",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Oswaldo"
+    responsible: "Oswaldo",
+    completedAt: null
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const mockInitiatives = [
     description: "Desenvolver solução para medição automática dos SLAs de primeira resposta e resolução de incidentes através da integração com o board de Incidentes do Jira",
     status: "Concluído",
     dueDate: "30/04/2025",
-    responsible: "Vanessa"
+    responsible: "Vanessa",
+    completedAt: "2024-03-15"
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ export const mockInitiatives = [
     description: "Implementar automação para desligar e ligar o ambiente de staging (APIs e banco de dados) durante a noite (23:00-07:00) e finais de semana para otimização de custos",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Cleber"
+    responsible: "Cleber",
+    completedAt: null
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ export const mockInitiatives = [
     description: "Identificar uma forma de medir o KR MW-KR-958, possibilitando coletar essa informação diretamente do board de extrações do Jira",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Rodrigo"
+    responsible: "Rodrigo",
+    completedAt: null
   },
   {
     id: 5,
@@ -42,7 +46,8 @@ export const mockInitiatives = [
     description: "Desenvolver o Documento de Requisitos (DOR) para as frentes de otimizações e IA, incluindo a publicação no Confluence da equipe.",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Vanessa"
+    responsible: "Vanessa",
+    completedAt: null
   },
   {
     id: 6,
@@ -51,7 +56,8 @@ export const mockInitiatives = [
     description: "Desenvolver o Documento de Definição de Pronto (DOD) para garantir a qualidade e a entrega das frentes de trabalho.",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Vanessa"
+    responsible: "Vanessa",
+    completedAt: null
   },
   {
     id: 7,
@@ -60,7 +66,8 @@ export const mockInitiatives = [
     description: "Desenvolver um sistema de tags para identificar todas as User Stories do '2025-Q2', incluindo tags para 'DELIVERY-DELAY', 'SCOPE-CHANGE' e 'BUG-AFTER-DELIVERY'. Esse sistema será fundamental para mensurar os KRs e extrair relatórios que permitam calcular os KRs mês a mês.",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Vanessa"
+    responsible: "Vanessa",
+    completedAt: null
   },
   {
     id: 8,
@@ -69,7 +76,8 @@ export const mockInitiatives = [
     description: "Revisar junto com a equipe o processo de gestão, análise e resolução de incidentes. Validar formulário de entrada, matriz de priorização, capacidade de atendimento, comunicação com outras equipes e métricas.",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Oswaldo"
+    responsible: "Oswaldo",
+    completedAt: null
   },
   {
     id: 9,
@@ -78,6 +86,7 @@ export const mockInitiatives = [
     description: "Obter acesso a todos os dados de cobrança, fazer um estudo dos custos, documentar, analisar e atualizar a documentação para o monitoramento dos custos e manutenção dos indicadores de key result.",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Oswaldo"
+    responsible: "Oswaldo",
+    completedAt: null
   }
 ] 
