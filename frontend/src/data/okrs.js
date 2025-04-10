@@ -50,7 +50,7 @@ export const mockOkrs = [
         dueDate: "30/06/2025",
         progress: 0,
         disabled: false,
-        currentValue: 1.1
+        currentValue: 0.70
       },
       {
         id: "MW-KR-886",
