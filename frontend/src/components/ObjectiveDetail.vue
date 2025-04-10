@@ -180,17 +180,23 @@ const objective = computed(() => {
 const objectiveInitiatives = computed(() => {
   const filteredInitiatives = initiatives.value.filter(init => init.objectiveId === route.params.id)
   
-  // Ordena as iniciativas: em andamento primeiro, concluídas por último, e por data de vencimento
+  // Função auxiliar para converter data no formato dd/mm/yyyy para objeto Date
+  const parseDate = (dateStr) => {
+    const [day, month, year] = dateStr.split('/')
+    return new Date(year, month - 1, day)
+  }
+  
+  // Ordena as iniciativas: em andamento primeiro (por data), concluídas por último
   return filteredInitiatives.sort((a, b) => {
-    // Se ambas estão em andamento ou ambas estão concluídas, ordena por data de vencimento
-    if ((a.status === 'Em andamento' && b.status === 'Em andamento') ||
-        (a.status === 'Concluído' && b.status === 'Concluído')) {
-      return new Date(a.dueDate) - new Date(b.dueDate)
+    // Se uma está concluída e outra em andamento
+    if (a.status !== b.status) {
+      return a.status === 'Concluído' ? 1 : -1
     }
-    // Coloca as em andamento primeiro
-    if (a.status === 'Em andamento') return -1
-    if (b.status === 'Em andamento') return 1
-    return 0
+    
+    // Se ambas têm o mesmo status, ordena por data
+    const dateA = parseDate(a.dueDate)
+    const dateB = parseDate(b.dueDate)
+    return dateA - dateB
   })
 })
 
