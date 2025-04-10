@@ -48,7 +48,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-884",
         title: "Manter o custo médio de infraestrutura por usuário abaixo de R$ 0,78",
         dueDate: "30/06/2025",
-        progress: 100,
+        progress: 60,
         disabled: false,
         currentValue: 0.70
       },
