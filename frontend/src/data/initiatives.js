@@ -178,5 +178,15 @@ export const mockInitiatives = [
     dueDate: "30/05/2025",
     responsible: "Oswaldo",
     completedAt: null
+  },
+  {
+    id: 23,
+    objectiveId: "MW-O-956",
+    title: "Criar o roadmap de desenvolvimento do data lake",
+    description: "Desenvolver o roadmap detalhado para a implementação e evolução do data lake da organização.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Rodrigo",
+    completedAt: null
   }
 ] 
