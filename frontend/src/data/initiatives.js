@@ -17,7 +17,7 @@ export const mockInitiatives = [
     status: "Concluído",
     dueDate: "30/04/2025",
     responsible: "Vanessa",
-    completedAt: "2024-03-15"
+    completedAt: "15/03/2024"
   },
   {
     id: 3,
@@ -87,6 +87,16 @@ export const mockInitiatives = [
     status: "Em andamento",
     dueDate: "30/04/2025",
     responsible: "Oswaldo",
+    completedAt: null
+  },
+  {
+    id: 10,
+    objectiveId: "MW-O-897",
+    title: "Adaptação do sistema para uso da API v5 da Pagar.me",
+    description: "Adaptação do sistema para uso da API v5 da Pagar.me através utilizando a solução da Malga para roteamento de pagamento.",
+    status: "Em andamento",
+    dueDate: "30/05/2025",
+    responsible: "Paulinho",
     completedAt: null
   }
 ] 
