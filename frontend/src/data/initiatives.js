@@ -25,7 +25,7 @@ export const mockInitiatives = [
     title: "Automatização de shutdown/startup do ambiente de staging",
     description: "Implementar automação para desligar e ligar o ambiente de staging (APIs e banco de dados) durante a noite (23:00-07:00) e finais de semana para otimização de custos",
     status: "Em andamento",
-    dueDate: "30/04/2025",
+    dueDate: "30/06/2025",
     responsible: "Cleber",
     completedAt: null
   },
