@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
-    <div class="max-w-7xl mx-auto">
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <main class="p-6">
       <!-- Cabeçalho -->
       <div class="mb-8">
         <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Visão Geral dos OKRs</h1>
@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
