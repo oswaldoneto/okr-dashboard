@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import OkrDashboard from '../components/OkrDashboard.vue'
 import ObjectiveDetail from '../components/ObjectiveDetail.vue'
 import KeyResultDetail from '../components/KeyResultDetail.vue'
+import OkrOverview from '../components/OkrOverview.vue'
 import AuthService from '../services/AuthService'
 import HomeView from '../views/HomeView.vue'
 
@@ -11,7 +12,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: OkrOverview,
       meta: { requiresAuth: true }
     },
     {
