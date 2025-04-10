@@ -98,5 +98,15 @@ export const mockInitiatives = [
     dueDate: "30/05/2025",
     responsible: "Paulinho",
     completedAt: null
+  },
+  {
+    id: 11,
+    objectiveId: "MW-O-897",
+    title: "Criar um processo de gestão de risco",
+    description: "Criar um processo de gestão de risco, para identificar, avaliar, tratar, monitorar riscos que podem impactar negativamente os objetivos dos projetos, negócio ou organização.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Oswaldo",
+    completedAt: null
   }
 ] 
