@@ -35,21 +35,21 @@ export const mockKeyResultHistory = {
     { month: "08/2025", value: 0 }
   ],
   "MW-KR-886": [
-    { month: "04/2025", value: 0 },
+    { month: "04/2025", value: 12292.53 },
     { month: "05/2025", value: 0 },
     { month: "06/2025", value: 0 },
     { month: "07/2025", value: 0 },
     { month: "08/2025", value: 0 }
   ],
   "MW-KR-887": [
-    { month: "04/2025", value: 0 },
+    { month: "04/2025", value: 7843.40 },
     { month: "05/2025", value: 0 },
     { month: "06/2025", value: 0 },
     { month: "07/2025", value: 0 },
     { month: "08/2025", value: 0 }
   ],
   "MW-KR-888": [
-    { month: "04/2025", value: 0 },
+    { month: "04/2025", value: 1380.10 },
     { month: "05/2025", value: 0 },
     { month: "06/2025", value: 0 },
     { month: "07/2025", value: 0 },
