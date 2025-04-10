@@ -186,12 +186,15 @@ const objectiveInitiatives = computed(() => {
     return new Date(year, month - 1, day)
   }
   
-  // Ordena as iniciativas: em andamento primeiro (por data), concluídas por último
+  // Ordena as iniciativas: em andamento primeiro (por data), em espera depois, concluídas por último
   return filteredInitiatives.sort((a, b) => {
-    // Se uma está concluída e outra em andamento
-    if (a.status !== b.status) {
-      return a.status === 'Concluído' ? 1 : -1
-    }
+    // Se uma está concluída e outra não
+    if (a.status === 'Concluído' && b.status !== 'Concluído') return 1
+    if (b.status === 'Concluído' && a.status !== 'Concluído') return -1
+    
+    // Se uma está em espera e outra em andamento
+    if (a.status === 'Em espera' && b.status === 'Em andamento') return 1
+    if (b.status === 'Em espera' && a.status === 'Em andamento') return -1
     
     // Se ambas têm o mesmo status, ordena por data
     const dateA = parseDate(a.dueDate)
@@ -208,6 +211,8 @@ const getStatusColor = (status) => {
       return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
     case 'em risco':
       return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+    case 'em espera':
+      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
     default:
       return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
   }

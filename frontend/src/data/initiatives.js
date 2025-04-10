@@ -168,5 +168,15 @@ export const mockInitiatives = [
     dueDate: "30/04/2025",
     responsible: "Vanessa",
     completedAt: null
+  },
+  {
+    id: 22,
+    objectiveId: "MW-O-892",
+    title: "Roadmap de desenvolvimento do Addon de Preparatório de certificação",
+    description: "Criar o roadmap de desenvolvimento do Addon de Preparatório de certificação.",
+    status: "Em espera",
+    dueDate: "30/05/2025",
+    responsible: "Oswaldo",
+    completedAt: null
   }
 ] 
