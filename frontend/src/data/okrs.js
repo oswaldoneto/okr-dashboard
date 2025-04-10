@@ -91,7 +91,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-956",
         title: "Garantir a implementação de 100% das camadas planejadas do Data Lake",
         dueDate: "30/06/2024",
-        progress: 36,
+        progress: 33,
         disabled: false
       },
       {

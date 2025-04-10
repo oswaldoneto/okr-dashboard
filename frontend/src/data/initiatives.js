@@ -118,5 +118,45 @@ export const mockInitiatives = [
     dueDate: "30/04/2025",
     responsible: "Oswaldo",
     completedAt: null
+  },
+  {
+    id: 13,
+    objectiveId: "MW-O-956",
+    title: "Padronizar a entrada de demandas de dashboards",
+    description: "Padronizar a entrada de demandas de dashboards (criação ou manutenção).",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Rodrigo",
+    completedAt: null
+  },
+  {
+    id: 14,
+    objectiveId: "MW-O-956",
+    title: "Padronizar a entrada de demandas de enriquecimento de dados",
+    description: "Padronizar a entrada de demandas de enriquecimento de dados.",
+    status: "Em andamento",
+    dueDate: "30/05/2025",
+    responsible: "Rodrigo",
+    completedAt: null
+  },
+  {
+    id: 15,
+    objectiveId: "MW-O-956",
+    title: "Padronizar a entrada de demandas de extrações e relatórios",
+    description: "Padronizar a entrada de demandas de extrações e relatórios.",
+    status: "Em andamento",
+    dueDate: "30/06/2025",
+    responsible: "Rodrigo",
+    completedAt: null
+  },
+  {
+    id: 16,
+    objectiveId: "MW-O-956",
+    title: "Migrar MWAA para infraestrutura provisionada do Airflow",
+    description: "Migrar MWAA (Managed Workflow Apache Airflow) para infraestrutura provisionada do Airflow permitindo uma maior escala de processamento de dados com redução de custo.",
+    status: "Em andamento",
+    dueDate: "30/05/2025",
+    responsible: "Pavani",
+    completedAt: null
   }
 ] 
