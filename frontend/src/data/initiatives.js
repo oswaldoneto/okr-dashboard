@@ -6,7 +6,7 @@ export const mockInitiatives = [
     description: "Desenvolver e implementar sistema automatizado para medição e monitoramento da disponibilidade dos serviços críticos da aplicação, permitindo acompanhamento em tempo real do uptime",
     status: "Em andamento",
     dueDate: "30/04/2025",
-    responsible: "Paulinho"
+    responsible: "Oswaldo"
   },
   {
     id: 2,
