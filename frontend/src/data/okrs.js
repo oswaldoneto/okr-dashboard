@@ -17,7 +17,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-897",
         title: "Reduzir o tempo médio de resposta da API de 95% das requisições para ≤ 500ms",
         dueDate: "30/06/2025",
-        progress: 98,
+        progress: 100,
         disabled: false
       },
       {
