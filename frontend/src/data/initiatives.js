@@ -40,26 +40,6 @@ export const mockInitiatives = [
     completedAt: null
   },
   {
-    id: 6,
-    objectiveId: "MW-O-892",
-    title: "Criação do DOD",
-    description: "Desenvolver o Documento de Definição de Pronto (DOD) para garantir a qualidade e a entrega das frentes de trabalho.",
-    status: "Em andamento",
-    dueDate: "30/04/2025",
-    responsible: "Vanessa",
-    completedAt: null
-  },
-  {
-    id: 7,
-    objectiveId: "MW-O-892",
-    title: "Criação de sistema de tags para User Stories no Jira",
-    description: "Desenvolver um sistema de tags para identificar todas as User Stories do '2025-Q2', incluindo tags para 'DELIVERY-DELAY', 'SCOPE-CHANGE' e 'BUG-AFTER-DELIVERY'. Esse sistema será fundamental para mensurar os KRs e extrair relatórios que permitam calcular os KRs mês a mês.",
-    status: "Em andamento",
-    dueDate: "30/04/2025",
-    responsible: "Vanessa",
-    completedAt: null
-  },
-  {
     id: 8,
     objectiveId: "MW-O-897",
     title: "Revisão do processo de gestão, análise e resolução de incidentes",
@@ -147,6 +127,36 @@ export const mockInitiatives = [
     status: "Em andamento",
     dueDate: "30/05/2025",
     responsible: "Pavani",
+    completedAt: null
+  },
+  {
+    id: 17,
+    objectiveId: "MW-O-892",
+    title: "Criar Checklists de Demanda/Requisitos prontos",
+    description: "Criar Checklists de Demanda/Requisitos prontos para entrar no processo de entendimento, refinamento e estimativa.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Oswaldo",
+    completedAt: null
+  },
+  {
+    id: 18,
+    objectiveId: "MW-O-892",
+    title: "Criar Checklists de User Story pronto para Sprint",
+    description: "Criar Checklists de User Story pronto para Sprint.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Vanessa",
+    completedAt: null
+  },
+  {
+    id: 19,
+    objectiveId: "MW-O-892",
+    title: "Criar Checklists de User Story pronto para Entrega",
+    description: "Criar Checklists de User Story pronto para Entrega.",
+    status: "Em andamento",
+    dueDate: "30/05/2025",
+    responsible: "Vanessa",
     completedAt: null
   }
 ] 
