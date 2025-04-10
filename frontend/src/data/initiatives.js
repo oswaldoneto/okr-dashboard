@@ -30,16 +30,6 @@ export const mockInitiatives = [
     completedAt: null
   },
   {
-    id: 4,
-    objectiveId: "MW-O-956",
-    title: "Mapear forma de medição automática do KR MW-KR-958",
-    description: "Identificar uma forma de medir o KR MW-KR-958, possibilitando coletar essa informação diretamente do board de extrações do Jira",
-    status: "Em andamento",
-    dueDate: "30/04/2025",
-    responsible: "Rodrigo",
-    completedAt: null
-  },
-  {
     id: 5,
     objectiveId: "MW-O-892",
     title: "Criação do DOR para frentes de otimizações e IA",
