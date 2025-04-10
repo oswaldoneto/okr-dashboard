@@ -12,7 +12,21 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': '/src'
     },
   },
+  server: {
+    port: 3000
+  },
+  build: {
+    outDir: 'dist'
+  },
+  define: {
+    'process.env': {}
+  },
+  base: './',
+  html: {
+    title: 'DIO OKR'
+  }
 })
+
