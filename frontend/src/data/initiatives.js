@@ -84,10 +84,10 @@ export const mockInitiatives = [
     objectiveId: "MW-O-884",
     title: "Obter acesso a dados de cobrança e análise de custos",
     description: "Obter acesso a todos os dados de cobrança, fazer um estudo dos custos, documentar, analisar e atualizar a documentação para o monitoramento dos custos e manutenção dos indicadores de key result.",
-    status: "Em andamento",
+    status: "Concluído",
     dueDate: "30/04/2025",
     responsible: "Oswaldo",
-    completedAt: null
+    completedAt: "10/04/2025"
   },
   {
     id: 10,
