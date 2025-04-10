@@ -30,16 +30,6 @@ export const mockInitiatives = [
     completedAt: null
   },
   {
-    id: 5,
-    objectiveId: "MW-O-892",
-    title: "Criação do DOR para frentes de otimizações e IA",
-    description: "Desenvolver o Documento de Requisitos (DOR) para as frentes de otimizações e IA, incluindo a publicação no Confluence da equipe.",
-    status: "Em andamento",
-    dueDate: "30/04/2025",
-    responsible: "Vanessa",
-    completedAt: null
-  },
-  {
     id: 8,
     objectiveId: "MW-O-897",
     title: "Revisão do processo de gestão, análise e resolução de incidentes",
@@ -133,7 +123,7 @@ export const mockInitiatives = [
     id: 17,
     objectiveId: "MW-O-892",
     title: "Criar Checklists de Demanda/Requisitos prontos",
-    description: "Criar Checklists de Demanda/Requisitos prontos para entrar no processo de entendimento, refinamento e estimativa.",
+    description: "Criar Checklists de Requisitos prontos para Entendimento de Negócio",
     status: "Em andamento",
     dueDate: "30/04/2025",
     responsible: "Oswaldo",
@@ -157,6 +147,16 @@ export const mockInitiatives = [
     status: "Em andamento",
     dueDate: "30/05/2025",
     responsible: "Vanessa",
+    completedAt: null
+  },
+  {
+    id: 20,
+    objectiveId: "MW-O-892",
+    title: "Roadmap de desenvolvimento do aplicativo da DIO",
+    description: "Criar o roadmap de desenvolvimento do aplicativo da DIO.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Oswaldo",
     completedAt: null
   }
 ] 
