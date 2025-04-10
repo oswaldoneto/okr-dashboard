@@ -138,8 +138,8 @@ export const mockOkrs = [
         objectiveId: "MW-O-892",
         title: "Realizar ao menos 1 teste de performance por mês nos componentes mais críticos da aplicação",
         dueDate: "30/06/2025",
-        progress: 60,
-        disabled: false
+        progress: 0,
+        disabled: true
       }
     ]
   }
