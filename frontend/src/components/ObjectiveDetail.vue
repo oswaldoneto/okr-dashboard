@@ -180,12 +180,12 @@ const objective = computed(() => {
 const objectiveInitiatives = computed(() => {
   const filteredInitiatives = initiatives.value.filter(init => init.objectiveId === route.params.id)
   
-  // Ordena as iniciativas: em andamento primeiro, concluídas por último
+  // Ordena as iniciativas: em andamento primeiro, concluídas por último, e por data de vencimento
   return filteredInitiatives.sort((a, b) => {
-    // Se ambas estão em andamento ou ambas estão concluídas, mantém a ordem original
+    // Se ambas estão em andamento ou ambas estão concluídas, ordena por data de vencimento
     if ((a.status === 'Em andamento' && b.status === 'Em andamento') ||
         (a.status === 'Concluído' && b.status === 'Concluído')) {
-      return 0
+      return new Date(a.dueDate) - new Date(b.dueDate)
     }
     // Coloca as em andamento primeiro
     if (a.status === 'Em andamento') return -1
