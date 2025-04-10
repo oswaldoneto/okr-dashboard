@@ -108,5 +108,15 @@ export const mockInitiatives = [
     dueDate: "30/04/2025",
     responsible: "Oswaldo",
     completedAt: null
+  },
+  {
+    id: 12,
+    objectiveId: "MW-O-884",
+    title: "Separar os custos de Marketing do Custo de operação DIO",
+    description: "Separar os custos de Marketing (Mailcoach) do Custo de operação DIO para evitar que o custo seja contabilizado em duplicidade.",
+    status: "Em andamento",
+    dueDate: "30/04/2025",
+    responsible: "Oswaldo",
+    completedAt: null
   }
 ] 
