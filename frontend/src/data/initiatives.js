@@ -198,5 +198,25 @@ export const mockInitiatives = [
     dueDate: "30/06/2025",
     responsible: "Paulinho",
     completedAt: null
+  },
+  {
+    id: 25,
+    objectiveId: "MW-O-884",
+    title: "Instrumentar uso de LLMs para controle de custos e qualidade",
+    description: "Instrumentar uso de LLMs para centralizar o controle de custos e controle e qualidade da acuracidade dos modelos.",
+    status: "Em andamento",
+    dueDate: "30/05/2025",
+    responsible: "Venilton",
+    completedAt: null
+  },
+  {
+    id: 26,
+    objectiveId: "MW-O-956",
+    title: "Implementação do Data Lake",
+    description: "Implementação do Data Lake para centralizar e otimizar o armazenamento de dados.",
+    status: "Em andamento",
+    dueDate: "30/06/2025",
+    responsible: "Rodrigo",
+    completedAt: null
   }
 ] 
