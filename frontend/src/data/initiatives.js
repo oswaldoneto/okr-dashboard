@@ -188,5 +188,15 @@ export const mockInitiatives = [
     dueDate: "30/04/2025",
     responsible: "Rodrigo",
     completedAt: null
+  },
+  {
+    id: 24,
+    objectiveId: "MW-O-897",
+    title: "Mapear o endpoint de eventos do curso",
+    description: "Endpoint de eventos do curso corresponde a 70% do tráfego da API, mapear o que o endpoint faz, que dado ele gera, o que impacta positivamente, discutir possíveis alternativas.",
+    status: "Em andamento",
+    dueDate: "30/06/2025",
+    responsible: "Paulinho",
+    completedAt: null
   }
 ] 
