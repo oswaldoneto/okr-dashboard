@@ -114,7 +114,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-892",
         title: "Garantir que 93% das entregas sejam concluídas dentro do prazo planejado",
         dueDate: "30/06/2025",
-        progress: 100,
+        progress: 95,
         disabled: false
       },
       {
