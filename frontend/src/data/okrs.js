@@ -130,7 +130,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-892",
         title: "Manter a taxa de retrabalho e bugs pós-implantação em 10% das entregas em até 15 dias após a implantação em produção",
         dueDate: "30/06/2025",
-        progress: 100,
+        progress: 95,
         disabled: false
       },
       {
