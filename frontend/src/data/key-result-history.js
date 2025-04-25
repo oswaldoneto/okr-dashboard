@@ -57,7 +57,7 @@ export const mockKeyResultHistory = {
   ],
   "MW-KR-888": [
     { month: "03/2025", value: 1380.10 },
-    { month: "04/2025", value: 1380.10 },
+    { month: "04/2025", value: 1656.64 },
     { month: "05/2025", value: 0 },
     { month: "06/2025", value: 0 },
     { month: "07/2025", value: 0 },
