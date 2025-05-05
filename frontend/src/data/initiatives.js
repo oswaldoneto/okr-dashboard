@@ -218,5 +218,15 @@ export const mockInitiatives = [
     dueDate: "30/06/2025",
     responsible: "Rodrigo",
     completedAt: null
+  },
+  {
+    id: 27,
+    objectiveId: "MW-O-897",
+    title: "Contrato com a Malga",
+    description: "Fechar o contrato com a Malga como fornecedor de solução de pagamento e realizar o kickoff",
+    status: "Em andamento",
+    dueDate: "07/05/2025",
+    responsible: "Oswaldo",
+    completedAt: null
   }
 ] 
