@@ -205,8 +205,8 @@ const objectiveInitiatives = computed(() => {
 })
 
 const getStatusColor = (status, dueDate) => {
-  // Verifica se a iniciativa está atrasada, exceto se estiver concluída
-  const isOverdue = status !== 'Concluído' && dueDate && new Date(dueDate.split('/').reverse().join('-')) < new Date()
+  // Verifica se a iniciativa está atrasada, exceto se estiver concluída ou descontinuada
+  const isOverdue = status !== 'Concluído' && status !== 'Descontinuado' && dueDate && new Date(dueDate.split('/').reverse().join('-')) < new Date()
   
   if (isOverdue) {
     return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
@@ -221,6 +221,8 @@ const getStatusColor = (status, dueDate) => {
       return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
     case 'em espera':
       return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
+    case 'descontinuado':
+      return 'bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-400'
     default:
       return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
   }

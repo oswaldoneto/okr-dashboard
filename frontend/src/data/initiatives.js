@@ -154,7 +154,7 @@ export const mockInitiatives = [
     objectiveId: "MW-O-892",
     title: "Roadmap de desenvolvimento do aplicativo da DIO",
     description: "Criar o roadmap de desenvolvimento do aplicativo da DIO.",
-    status: "Em andamento",
+    status: "Descontinuado",
     dueDate: "30/04/2025",
     responsible: "Oswaldo",
     completedAt: null
