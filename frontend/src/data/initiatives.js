@@ -228,5 +228,15 @@ export const mockInitiatives = [
     dueDate: "07/05/2025",
     responsible: "Oswaldo",
     completedAt: null
+  },
+  {
+    id: 28,
+    objectiveId: "MW-O-897",
+    title: "Implementar monitoramento externo de disponibilidade global",
+    description: "Implementar solução de monitoramento externo que acesse pontos críticos da aplicação em diferentes regiões do mundo, permitindo medição de disponibilidade e performance sob diferentes perspectivas geográficas.",
+    status: "Em andamento",
+    dueDate: "30/08/2025",
+    responsible: "Paulinho",
+    completedAt: null
   }
 ] 
