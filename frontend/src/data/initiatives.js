@@ -4,7 +4,7 @@ export const mockInitiatives = [
     objectiveId: "MW-O-897",
     title: "Implementar monitoramento automatizado de disponibilidade",
     description: "Desenvolver e implementar sistema automatizado para medição e monitoramento da disponibilidade dos serviços críticos da aplicação, permitindo acompanhamento em tempo real do uptime",
-    status: "Em andamento",
+    status: "Em espera",
     dueDate: "30/06/2025",
     responsible: "Paulinho",
     completedAt: null
@@ -24,7 +24,7 @@ export const mockInitiatives = [
     objectiveId: "MW-O-884",
     title: "Automatização de shutdown/startup do ambiente de staging",
     description: "Implementar automação para desligar e ligar o ambiente de staging (APIs e banco de dados) durante a noite (23:00-07:00) e finais de semana para otimização de custos",
-    status: "Em andamento",
+    status: "Em espera",
     dueDate: "30/06/2025",
     responsible: "Cleber",
     completedAt: null
@@ -114,7 +114,7 @@ export const mockInitiatives = [
     objectiveId: "MW-O-956",
     title: "Migrar MWAA para infraestrutura provisionada do Airflow",
     description: "Migrar MWAA (Managed Workflow Apache Airflow) para infraestrutura provisionada do Airflow permitindo uma maior escala de processamento de dados com redução de custo.",
-    status: "Em andamento",
+    status: "Em espera",
     dueDate: "30/05/2025",
     responsible: "Pavani",
     completedAt: null
@@ -194,7 +194,7 @@ export const mockInitiatives = [
     objectiveId: "MW-O-897",
     title: "Mapear o endpoint de eventos do curso",
     description: "Endpoint de eventos do curso corresponde a 70% do tráfego da API, mapear o que o endpoint faz, que dado ele gera, o que impacta positivamente, discutir possíveis alternativas.",
-    status: "Em andamento",
+    status: "Em espera",
     dueDate: "30/06/2025",
     responsible: "Paulinho",
     completedAt: null
@@ -204,7 +204,7 @@ export const mockInitiatives = [
     objectiveId: "MW-O-884",
     title: "Instrumentar uso de LLMs para controle de custos e qualidade",
     description: "Instrumentar uso de LLMs para centralizar o controle de custos e controle e qualidade da acuracidade dos modelos.",
-    status: "Em andamento",
+    status: "Em espera",
     dueDate: "30/05/2025",
     responsible: "Venilton",
     completedAt: null
