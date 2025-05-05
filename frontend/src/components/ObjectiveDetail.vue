@@ -132,7 +132,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">
                   <span :class="getStatusColor(initiative.status, initiative.dueDate)" 
                         class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full">
-                    {{ initiative.status === 'Concluído' ? initiative.status : 
+                    {{ initiative.status === 'Concluído' || initiative.status === 'Descontinuado' ? initiative.status : 
                        (initiative.dueDate && new Date(initiative.dueDate.split('/').reverse().join('-')) < new Date() ? 'Atrasado' : initiative.status) }}
                   </span>
                 </td>
@@ -187,8 +187,12 @@ const objectiveInitiatives = computed(() => {
     return new Date(year, month - 1, day)
   }
   
-  // Ordena as iniciativas: em andamento primeiro (por data), em espera depois, concluídas por último
+  // Ordena as iniciativas: em andamento primeiro (por data), em espera depois, concluídas e descontinuadas por último
   return filteredInitiatives.sort((a, b) => {
+    // Se uma está descontinuada e outra não
+    if (a.status === 'Descontinuado' && b.status !== 'Descontinuado') return 1
+    if (b.status === 'Descontinuado' && a.status !== 'Descontinuado') return -1
+
     // Se uma está concluída e outra não
     if (a.status === 'Concluído' && b.status !== 'Concluído') return 1
     if (b.status === 'Concluído' && a.status !== 'Concluído') return -1
