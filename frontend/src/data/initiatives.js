@@ -164,7 +164,7 @@ export const mockInitiatives = [
     objectiveId: "MW-O-892",
     title: "Roadmap de desenvolvimento da Malga",
     description: "Criar o roadmap de desenvolvimento da migração da Pagar.me para a Malga.",
-    status: "Em andamento",
+    status: "Concluído",
     dueDate: "30/04/2025",
     responsible: "Vanessa",
     completedAt: null
