@@ -130,9 +130,9 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <span :class="getStatusColor(initiative.status)" 
+                  <span :class="getStatusColor(initiative.status, initiative.dueDate)" 
                         class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full">
-                    {{ initiative.status }}
+                    {{ initiative.dueDate && new Date(initiative.dueDate.split('/').reverse().join('-')) < new Date() ? 'Atrasado' : initiative.status }}
                   </span>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
@@ -203,7 +203,14 @@ const objectiveInitiatives = computed(() => {
   })
 })
 
-const getStatusColor = (status) => {
+const getStatusColor = (status, dueDate) => {
+  // Verifica se a iniciativa está atrasada
+  const isOverdue = dueDate && new Date(dueDate.split('/').reverse().join('-')) < new Date()
+  
+  if (isOverdue) {
+    return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+  }
+
   switch (status.toLowerCase()) {
     case 'concluído':
       return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
