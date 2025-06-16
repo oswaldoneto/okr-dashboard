@@ -91,7 +91,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-956",
         title: "Garantir a implementação de 100% das camadas planejadas do Data Lake",
         dueDate: "30/06/2024",
-        progress: 42,
+        progress: 100,
         disabled: false
       },
       {
@@ -99,7 +99,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-956",
         title: "Assegurar que 97% das extrações e relatórios sejam entregues dentro do prazo acordado",
         dueDate: "30/06/2025",
-        progress: 100,
+        progress: 99.54,
         disabled: false
       }
     ]
