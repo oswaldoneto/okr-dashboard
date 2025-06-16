@@ -9,7 +9,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-897",
         title: "Garantir 99,45% de uptime nos serviços críticos para o usuário da plataforma",
         dueDate: "30/06/2025",
-        progress: 99.93,
+        progress: 99.73,
         disabled: false
       },
       {
