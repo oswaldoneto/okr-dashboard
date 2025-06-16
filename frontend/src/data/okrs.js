@@ -33,7 +33,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-897",
         title: "Garantir que 95% dos incidentes sejam resolvidos dentro do SLA acordado (80 horas)",
         dueDate: "30/06/2025",
-        progress: 95,
+        progress: 100,
         disabled: false
       }
     ]
