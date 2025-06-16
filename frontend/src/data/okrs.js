@@ -66,9 +66,9 @@ export const mockOkrs = [
         objectiveId: "MW-O-884",
         title: "Manter o custo mensal de ambientes de sandbox abaixo de R$ 10.000",
         dueDate: "30/06/2025",
-        progress: 50,
+        progress: 100,
         disabled: false,
-        currentValue: 9691.40
+        currentValue: 8088.14
       },
       {
         id: "MW-KR-888",
