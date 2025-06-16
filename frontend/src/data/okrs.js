@@ -130,7 +130,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-892",
         title: "Manter ao menos 90% das entregas livres de retrabalho ou bugs nos 15 dias após a implantação.",
         dueDate: "30/06/2025",
-        progress: 99,
+        progress: 98,
         disabled: false
       },
       {
