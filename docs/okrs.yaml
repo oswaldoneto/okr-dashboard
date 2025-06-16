@@ -39,6 +39,6 @@ objectives:
       - id: "MW-KR-894"
         title: "Garantir que 95% das entregas sejam finalizadas sem aumento não planejado de escopo até 30/06/2025."
       - id: "MW-KR-895"
-        title: "Manter a taxa de retrabalho e bugs pós-implantação em 10% das entregas em até 15 dias após a implantação em produção."
+        title: "Manter ao menos 90% das entregas livres de retrabalho ou bugs nos 15 dias após a implantação."
       - id: "MW-KR-896"
         title: "Realizar ao menos 1 teste de performance por mês nos componentes mais críticos da aplicação até 30/06/2025." 
