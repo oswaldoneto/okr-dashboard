@@ -25,7 +25,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-897",
         title: "Garantir que 95% dos incidentes recebam a primeira resposta dentro do SLA definido (8 horas)",
         dueDate: "30/06/2025",
-        progress: 77.27,
+        progress: 95,
         disabled: false
       },
       {
@@ -33,7 +33,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-897",
         title: "Garantir que 95% dos incidentes sejam resolvidos dentro do SLA acordado (80 horas)",
         dueDate: "30/06/2025",
-        progress: 100,
+        progress: 95,
         disabled: false
       }
     ]
