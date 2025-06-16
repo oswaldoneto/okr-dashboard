@@ -57,7 +57,7 @@ export const mockOkrs = [
         objectiveId: "MW-O-884",
         title: "Manter os custos de infraestrutura para operação DIO abaixo de R$ 10.000 sem comprometer performance",
         dueDate: "30/06/2025",
-        progress: 70,
+        progress: 69,
         disabled: false,
         currentValue: 14220.00
       },
