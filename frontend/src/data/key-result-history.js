@@ -28,9 +28,9 @@ export const mockKeyResultHistory = {
     { month: "08/2025", value: 0 }
   ],
   "MW-KR-885": [
-    { month: "04/2025", value: 1.36 },
-    { month: "05/2025", value: 1.52 },
-    { month: "06/2025", value: 0 },
+    { month: "04/2025", value: 0.78 },
+    { month: "05/2025", value: 0.95 },
+    { month: "06/2025", value: 0.81 },
     { month: "07/2025", value: 0 },
     { month: "08/2025", value: 0 }
   ],
@@ -44,7 +44,7 @@ export const mockKeyResultHistory = {
   "MW-KR-887": [
     { month: "04/2025", value: 9691.40 },
     { month: "05/2025", value: 8088.14 },
-    { month: "06/2025", value: 0 },
+    { month: "06/2025", value: 7916.16 },
     { month: "07/2025", value: 0 },
     { month: "08/2025", value: 0 }
   ],
@@ -52,7 +52,7 @@ export const mockKeyResultHistory = {
     { month: "04/2025", value: 1656.64 },
     { month: "05/2025", value: 1019.00 },
     { month: "06/2025", value: 0 },
-    { month: "07/2025", value: 0 },
+    { month: "07/2025", value: 0 }, 
     { month: "08/2025", value: 0 }
   ],
   "MW-KR-957": [
